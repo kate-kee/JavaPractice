@@ -1,0 +1,23 @@
+class Solution {
+    public int countPrimes(int n) {
+        boolean[] sieve=new boolean[n];
+        for(int i=2;i<n;i++){
+            sieve[i]=false;
+        }
+        for(int i=2;i<Math.sqrt(n);i++){
+            if(sieve[i]==false){
+                for(int j=2;i*j<n;j++){
+                    sieve[i*j]=true;
+                }
+            }
+        }
+        int result=0;
+        for(int i=2;i<sieve.length;i++){
+            if(sieve[i]==false){
+                 result++;
+            }
+               
+        }
+    return result;
+    }
+}
